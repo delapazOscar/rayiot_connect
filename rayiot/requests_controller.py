@@ -6,7 +6,8 @@ class RequestsController:
         self.access_token = access_token
         self.account_id = account_id
 
-    def make_request(self, method=False, payload=False, res_id=1, res_model=False):
+    def make_request(self, method=None, payload=None, res_id=1, res_model=None):
+        # Prepare the request payload
         data = {
             "params": {
                 "res_model": res_model,
@@ -18,8 +19,22 @@ class RequestsController:
             }
         }
 
-        try:
-            response = requests.request("POST", self.endpoint, data, timeout=60)
-        except requests.exceptions.ConnectionError:
-            print(response.json())
+        headers = {
+            'Content-Type': 'application/json'
+        }
 
+        print("Request Data:", data)
+        print(f"Endpoint {self.endpoint}")
+
+        try:
+            # Use the passed method for the HTTP request
+            response = requests.post(self.endpoint, json= data, timeout=60)
+
+            print("Response Status Code:", response.status_code)
+            print("Response Content:", response.json())
+        except requests.exceptions.ConnectionError:
+            print("Failed to connect to the endpoint. Please check the network connection.")
+        except requests.exceptions.Timeout:
+            print("The request timed out.")
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
