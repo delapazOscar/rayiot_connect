@@ -19,7 +19,7 @@ class RequestsController:
         }
 
         try:
-            response = requests.request("POST", self.endpoint, data, timeout=60)
+            response = requests.request(method="POST", url=self.endpoint, data=data, timeout=60)
         except requests.exceptions.ConnectionError:
             print(response.json())
 
