@@ -6,7 +6,7 @@ class RequestsController:
         self.access_token = access_token
         self.account_id = account_id
 
-    def make_request(self, method="POST", payload=None, res_id=1, res_model=None):
+    def make_request(self, method=None, payload=None, res_id=1, res_model=None):
         # Prepare the request payload
         data = {
             "params": {
