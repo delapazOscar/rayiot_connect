@@ -4,7 +4,7 @@ import batteryTray
 import requests_controller
 
 monitor = batteryTray.BatteryMonitor(addr=0x42)
-monitor.run(check_interval=60)  # Verifica cada 60 segundos
+
 
 requests = requests_controller.RequestsController(
     "http://18.116.231.95:8069/odoo-firebase-core/odoo-import",
@@ -13,6 +13,7 @@ requests = requests_controller.RequestsController(
 )
 
 while True:
+    monitor.run()
     battery_data = monitor.get_battery_data()
     print("Haciendo petición...")
     requests.make_request("update_battery_data", battery_data, 1, "ray.rayiot")

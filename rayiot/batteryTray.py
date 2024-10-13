@@ -51,12 +51,11 @@ class BatteryMonitor:
         logging.info(f"Corriente: {battery_data['current']:.3f} mA")
         logging.info(f"Porcentaje de batería: {battery_data['battery_percentage']:.1f}%")
 
-    def run(self, check_interval=60):
+    def run(self):
         """Ejecuta el monitor de batería en un bucle que verifica el estado de la batería cada `check_interval` segundos."""
-        while True:
-            self.log_battery_data()
-            self.check_low_voltage()
-            time.sleep(check_interval)
+
+        self.log_battery_data()
+        self.check_low_voltage()
 
 
 
