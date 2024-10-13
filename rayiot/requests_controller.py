@@ -20,6 +20,7 @@ class RequestsController:
         }
 
         print("Request Data:", data)
+        print(f"Endpoint {self.endpoint}")
 
         try:
             # Use the passed method for the HTTP request
