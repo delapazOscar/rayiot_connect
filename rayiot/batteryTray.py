@@ -18,9 +18,9 @@ class BatteryMonitor:
         battery_percentage = self.calculate_battery_percentage(bus_voltage)
 
         return {
-            "voltage": bus_voltage,
-            "current": current,
-            "battery_percentage": battery_percentage
+            "voltage": round(bus_voltage,2),
+            "current": round(current,2),
+            "battery_percentage": round(battery_percentage,2)
         }
 
     def calculate_battery_percentage(self, voltage):
