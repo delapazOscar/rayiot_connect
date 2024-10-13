@@ -19,12 +19,16 @@ class RequestsController:
             }
         }
 
+        headers = {
+            'Content-Type': 'application/json'
+        }
+
         print("Request Data:", data)
         print(f"Endpoint {self.endpoint}")
 
         try:
             # Use the passed method for the HTTP request
-            response = requests.request(method=method, url=self.endpoint, json=data, timeout=60)
+            response = requests.request(method=method, url=self.endpoint, headers=headers, json=data, timeout=60)
 
             # Print the response
             print("Response Status Code:", response.status_code)
