@@ -14,6 +14,7 @@ requests = requests_controller.RequestsController(
 
 while True:
     battery_data = monitor.get_battery_data()
-    requests.make_request()
+    print("Haciendo petición...")
+    requests.make_request("update_battery_data", battery_data, 1, "ray.rayiot")
     time.sleep(60)
 
