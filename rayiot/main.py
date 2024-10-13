@@ -1,6 +1,6 @@
 import time
 
-from batteries_module_rayiot import batteryTray
+from rayiot import batteryTray
 import requests_controller
 
 monitor = batteryTray.BatteryMonitor(addr=0x42)
