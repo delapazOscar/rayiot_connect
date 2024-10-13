@@ -18,6 +18,8 @@ class RequestsController:
             }
         }
 
+        print(data)
+
         try:
             response = requests.request(method="POST", url=self.endpoint, data=data, timeout=60)
 
