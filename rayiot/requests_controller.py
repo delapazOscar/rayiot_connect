@@ -1,5 +1,4 @@
 import requests
-import json
 
 class RequestsController:
     def __init__(self, endpoint, access_token, account_id):
@@ -20,8 +19,6 @@ class RequestsController:
             }
         }
 
-        json_data = json.dumps(data)
-
         headers = {
             'Content-Type': 'application/json'
         }
@@ -31,7 +28,7 @@ class RequestsController:
 
         try:
             # Use the passed method for the HTTP request
-            response = requests.request(method=method, url=self.endpoint, headers=headers, json=json_data, timeout=60)
+            response = requests.post(self.endpoint, data= data)
 
             print("Response Status Code:", response.status_code)
             print("Response Content:", response.json())
