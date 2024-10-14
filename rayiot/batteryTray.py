@@ -18,15 +18,15 @@ class BatteryMonitor:
         battery_percentage = self.calculate_battery_percentage(bus_voltage)
 
         return {
-            "voltage": round(bus_voltage,2),
-            "current": round(current,2),
-            "battery_percentage": round(battery_percentage,2)
+            "voltage": round(bus_voltage,3),
+            "current": round(current,3),
+            "battery_percentage": round(battery_percentage,0)
         }
 
     def calculate_battery_percentage(self, voltage):
         """Calcula el porcentaje de batería basado en el voltaje."""
         # Considera un rango de 6V (0%) a 8.4V (100%)
-        p = (voltage - 6) / (8.4 - 6) * 100
+        p = (voltage - 6) / (8.2 - 6) * 100
         return max(0, min(p, 100))  # Constrain p between 0% and 100%
 
     def check_low_voltage(self):
