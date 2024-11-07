@@ -17,5 +17,5 @@ while True:
     battery_data = monitor.get_battery_data()
     print("Haciendo petición...")
     backend.make_request(method="update_battery_data", payload=battery_data, res_id=1, res_model="ray.rayiot")
-    time.sleep(60)
+    time.sleep(1)
 
