@@ -21,5 +21,5 @@ while True:
     except Exception as e:
         print(f"Error en la petición: {e}")
 
-    time.sleep(1)
+    time.sleep(10)
 
