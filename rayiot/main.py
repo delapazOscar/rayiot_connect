@@ -7,7 +7,7 @@ monitor = batteryTray.BatteryMonitor(addr=0x42)
 
 
 backend = requests_controller.RequestsController(
-    endpoint="http://rayiot.eastus2.cloudapp.azure.com:8070/odoo-firebase-core/odoo-import",
+    endpoint="https://rayiot.eastus2.cloudapp.azure.com/odoo-firebase-core/odoo-import",
     access_token="12fa06f23b81d89482ebadc754d20009272e2181e7c8f42759dbafcfd89c9c49",
     account_id=1
 )
@@ -21,5 +21,5 @@ while True:
     except Exception as e:
         print(f"Error en la petición: {e}")
 
-    time.sleep(10)
+    time.sleep(60)
 
