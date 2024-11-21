@@ -29,9 +29,11 @@ class RequestsController:
         try:
             # Use the passed method for the HTTP request
             response = requests.post(self.endpoint, json= data, timeout=60)
-
             print("Response Status Code:", response.status_code)
             print("Response Content:", response.json())
+
+            return response
+
         except requests.exceptions.ConnectionError:
             print("Failed to connect to the endpoint. Please check the network connection.")
         except requests.exceptions.Timeout:
